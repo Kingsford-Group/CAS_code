@@ -1,0 +1,28 @@
+#main loop
+for v in all nodes:
+    obtain all C(v)
+    
+    for v_c in C(v):
+        reset vCu_ptr
+        reset vu_ptr
+        reset vuC_ptr
+
+        for u in F(v):
+            obtain d(v_c, u)
+            obtain d(v, u)
+            obtain all C(u)
+
+            for u_c in C(u):
+                obtain d(v, u_c)
+                d = core edit distance compare
+
+                if d < D:
+                    add u_c to v_c 
+
+#obtain d(v, u):
+move ptr to x where x >= u
+
+#Initialization 
+At the beginning, when a node is taken in, it is not linked to any node
+self_pointer is not initialized
+p_Cptr is initilized to 0

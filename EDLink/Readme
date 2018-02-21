@@ -1,0 +1,31 @@
+***To compile:***
+mkdir release
+cd release
+cmake ..
+make
+
+
+***To build FM-Index:***
+./generator -b ${fasta_file}
+${fasta_file}: reference fasta file
+
+
+***To build tree:***
+./generator -l ${fasta_file} -b ${tree_level} -d ${tree_dir}
+${fasta_file}: reference fasta file
+${tree_level}: depth of the tree
+${tree_dir}: dir to store the tree info
+
+
+***To calculate neighbors of the tree:***
+./processor ${tree_dir} ${ED_threshold} ${max_depth} ${result_dir}
+${tree_dir}: dir that stores tree
+${ED_threshold}: threshold to store F
+${max_depth}: the maximum depth of nodes to process in the tree
+${result_dir}: directory to store all the results
+
+
+=====Example=====
+./generator -b ../ref.fasta
+./generator -l ../ref.fasta -b 8 -d tree_dir
+./processor tree_dir 2 4 ed_dir
