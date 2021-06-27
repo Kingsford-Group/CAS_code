@@ -8,6 +8,9 @@ project (ED_LINK CXX)
 # Dependencies
 # ----------------------------------------------------------------------------
 
+# Set static Boost
+set(Boost_USE_STATIC_LIBS ON)
+
 # Search for zlib as a dependency for SeqAn.
 find_package (ZLIB)
 
